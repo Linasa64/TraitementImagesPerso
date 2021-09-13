@@ -23,7 +23,7 @@ img = io.imread("image2_reference.png")
 # ALGO BRUIT ADDITIF
 for line in range(len(img)):
     for col in range(len(img)):
-        if (randint(1, 10) == 1):
+        if (randint(1, 100) == 1):
             img[line, col] = img[line, col] + 20
             if (img[line, col]>255):
               img[line, col] = 255
@@ -38,6 +38,32 @@ for line in range(len(img)):
 #               img[line, col] = 255                 
 
 
-#Affichage
+# #CALCUL SNR
+
+# from numpy import log10, errstate, float64
+
+# with errstate(divide='ignore'):
+#     float64(1.0)/0.0
+
+# imgRef = io.imread("image1_reference.png")
+# imgBruit = io.imread("image1_bruitee_snr_9.2885.png")
+
+# pSignal = 0
+# pBruit = 0
+
+# for line in range(len(imgBruit)):
+#     for col in range(len(imgBruit)):
+#         pSignal = pSignal + imgBruit[line, col]**2
+#         pBruit = pBruit + (imgRef[line, col]-imgBruit[line, col])*(imgRef[line, col]-imgBruit[line, col])
+        
+        
+# print(pSignal)
+# print(pBruit)
+# snr = 10*log10(pSignal/pBruit)
+
+# print("Résultat : ", snr)
+
+
+# #Affichage
 io.imshow(img)
 io.show
